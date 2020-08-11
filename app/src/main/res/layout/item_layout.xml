@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reading_list_item_motion"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    app:layoutDescription="@xml/reading_list_item_scene">
+
+    <!-- The image under the element that moves -->
+    <ImageView
+        android:id="@+id/reading_list_item_back"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="#FF0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <Button
+        android:layout_width="72dp"
+        android:id="@+id/delete"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:stateListAnimator="@null"
+        android:background="@drawable/delete"
+        android:layout_marginLeft="10dp"
+        android:layout_height="72dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/reading_list_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:paddingLeft="@dimen/search_result_padding"
+        android:paddingRight="@dimen/search_result_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+     <!--   <ImageView
+            android:id="@+id/reading_list_item_icon"
+            android:layout_width="@dimen/ic_search_result"
+            android:layout_height="@dimen/ic_search_result"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_weight="1"
+            android:contentDescription="Search result icon"
+            app:error="@{@drawable/ic_default_search_result}"
+            app:imageUrl="@{book.best_book.small_image_url}"
+            app:layout_constraintEnd_toStartOf="@id/reading_list_item_info_layout"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_default_search_result" />
+-->
+        <ImageView
+            android:id="@+id/reading_list_item_icon"
+            android:layout_width="@dimen/ic_search_result"
+            android:layout_height="@dimen/ic_search_result"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_weight="1"
+            android:contentDescription="Search result icon"
+            app:layout_constraintEnd_toStartOf="@id/reading_list_item_info_layout"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_book" />
+
+        <LinearLayout
+            android:id="@+id/reading_list_item_info_layout"
+            android:layout_width="316dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toEndOf="@+id/reading_list_item_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.6">
+
+            <TextView
+                android:id="@+id/reading_list_item_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:singleLine="false"
+                android:text="@{book.best_book.title}"
+                tools:text="test"
+                android:textColor="@color/textSecondary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/reading_list_item_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                tools:text="test"
+                android:singleLine="true"
+                android:text='@{"by " + book.best_book.author.name }'
+                android:textColor="@color/textSecondary" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
